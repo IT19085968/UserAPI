@@ -1,4 +1,4 @@
-package com.userapi.web;
+package com.userapi.web.user;
 
 import java.util.List;
 
@@ -25,4 +25,4 @@ public class UserService {
         userRepository.save(user);
     }
 
-  }
+}

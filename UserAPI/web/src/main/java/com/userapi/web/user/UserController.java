@@ -1,4 +1,4 @@
-package com.userapi.web;
+package com.userapi.web.user;
 
 import java.util.List;
 
@@ -31,7 +31,5 @@ public class UserController {
     public void registerNewUser(@RequestBody User user) {
         userService.addNewUser(user);
     }
-
-
 
 }

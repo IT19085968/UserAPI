@@ -1,8 +1,7 @@
-package com.userapi.web;
+package com.userapi.web.user;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, String> {
-
 
 }
