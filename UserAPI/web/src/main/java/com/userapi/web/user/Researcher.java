@@ -18,5 +18,6 @@ public class Researcher {
     private String Email;
     private int ContactNumber;
     private String Password;
+    private String researchPaperId;
 
 }

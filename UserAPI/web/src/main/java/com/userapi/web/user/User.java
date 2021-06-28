@@ -16,5 +16,6 @@ public class User {
     private String id;
     private String Name;
     private String Email;
+    private String ContactNumber;
     private String Password;
 }

@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final WorkshopPresenterRepository workshopPresenterRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, WorkshopPresenterRepository workshopPresenterRepository) {
         this.userRepository = userRepository;
+        this.workshopPresenterRepository = workshopPresenterRepository;
     }
 
     public List<User> getAllUsers() {
@@ -20,9 +22,23 @@ public class UserService {
 
     }
 
+    public List<WorkshopPresenter> getAllWorkshopPresenters() {
+        return workshopPresenterRepository.findAll();
+
+    }
+
     public void addNewUser(User user) {
 
         userRepository.save(user);
+    }
+
+    public void addNewWorkshopPresenter(WorkshopPresenter presenter) {
+
+        workshopPresenterRepository.save(presenter);
+    }
+
+    public List<WorkshopPresenter> getOneWorkshopPresenter(String id) {
+        return workshopPresenterRepository.findByWorkshopProposalId(id);
     }
 
 }
