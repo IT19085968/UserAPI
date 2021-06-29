@@ -53,6 +53,8 @@ public class EditorService {
         newConference.setVenue(conference.getVenue());
         newConference.setStartTime(conference.getStartTime());
         newConference.setDuration(conference.getDuration());
+        newConference.setNumberOfAttendees(conference.getNumberOfAttendees());
+        newConference.setMaximumAttendees(conference.getMaximumAttendees());
         newConference.setApproved(conference.getApproved());
         conferenceRepository.save(newConference);
     }

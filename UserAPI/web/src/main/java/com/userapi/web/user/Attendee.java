@@ -18,5 +18,8 @@ public class Attendee {
     private String Email;
     private int ContactNumber;
     private String Password;
+    private String PaymentMethod;
+    private int Amount;
+    private String conferenceId;
 
 }

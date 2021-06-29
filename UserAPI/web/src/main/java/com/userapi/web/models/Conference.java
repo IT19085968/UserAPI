@@ -19,6 +19,8 @@ public class Conference {
     private String Venue;
     private String StartTime;
     private String Duration;
+    private int numberOfAttendees;
+    private int maximumAttendees;
     private boolean approved;
 
     public boolean getApproved() {
