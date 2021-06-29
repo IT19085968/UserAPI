@@ -42,5 +42,18 @@ public class ReviewerService {
 
     public WorkshopProposal getWokshopProposal(String id) {
         return workshopRepository.findById(id).orElse(null);
+        // return workshopRepository.findByWorkshopProposalId(id);
+    }
+
+    public void approveDeclineWorkshopProposal(WorkshopProposal proposal) {
+        workshopRepository.save(proposal);
+    }
+
+    public List<WorkshopProposal> getAllWorkshopProposals() {
+        return workshopRepository.findAll();
+    }
+
+    public ResearchPaper getResearchPaper(String id) {
+        return researchPaperRepository.findById(id).orElse(null);
     }
 }

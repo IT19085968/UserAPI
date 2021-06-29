@@ -30,9 +30,19 @@ public class ReviewerController {
         return reviewerService.getAllResearchPapers();
     }
 
+    @GetMapping("/viewAllWorksShop")
+    public List<WorkshopProposal> getWorkshopProposals() {
+        return reviewerService.getAllWorkshopProposals();
+    }
+
     @GetMapping("/viewCertainWorkshop/{id}")
     public WorkshopProposal getWorkshopById(@PathVariable String id) {
         return reviewerService.getWokshopProposal(id);
+    }
+
+    @GetMapping("/searchCertainResearchPaper/{id}")
+    public ResearchPaper getResearchPaperById(@PathVariable String id) {
+        return reviewerService.getResearchPaper(id);
     }
 
     @PostMapping("/create")
@@ -43,5 +53,10 @@ public class ReviewerController {
     @PostMapping("/approveDeclineConferenceResearchPaper")
     public void approveDeclineResearchPaper(@RequestBody ResearchPaper researchPaper) {
         reviewerService.approveDeclineConferenceResearchPaper(researchPaper);
+    }
+
+    @PostMapping("/approveDeclineWorkshop")
+    public void approveDeclineWorkshop(@RequestBody WorkshopProposal proposal) {
+        reviewerService.approveDeclineWorkshopProposal(proposal);
     }
 }
