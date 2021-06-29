@@ -33,12 +33,12 @@ public class ReviewerService {
         reviewerRepository.save(reviewer);
     }
 
-    //Approve Decline Workshop
+    // Approve Decline Workshop
     public void approveDeclineConferenceResearchPaper(ResearchPaper researchPaper) {
         researchPaperRepository.save(researchPaper);
     }
 
-    public void approveDeclineWorkshop(WorkshopProposal workshopProposal){
+    public void approveDeclineWorkshop(WorkshopProposal workshopProposal) {
         workshopRepository.save(workshopProposal);
     }
 
@@ -46,22 +46,14 @@ public class ReviewerService {
         return researchPaperRepository.findAll();
     }
 
-    //Get all Workshops
-    public List<WorkshopProposal> getAllWorkshops(){
+    // Get all Workshops
+    public List<WorkshopProposal> getAllWorkshops() {
         return workshopRepository.findAll();
     }
 
     public WorkshopProposal getWokshopProposal(String id) {
         return workshopRepository.findById(id).orElse(null);
         // return workshopRepository.findByWorkshopProposalId(id);
-    }
-
-    public void approveDeclineWorkshopProposal(WorkshopProposal proposal) {
-        workshopRepository.save(proposal);
-    }
-
-    public List<WorkshopProposal> getAllWorkshopProposals() {
-        return workshopRepository.findAll();
     }
 
     public ResearchPaper getResearchPaper(String id) {
