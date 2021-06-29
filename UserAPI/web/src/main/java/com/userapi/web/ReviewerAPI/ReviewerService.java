@@ -29,15 +29,26 @@ public class ReviewerService {
     }
 
     public void addNewReviewer(Reviewer reviewer) {
+
         reviewerRepository.save(reviewer);
     }
 
+    //Approve Decline Workshop
     public void approveDeclineConferenceResearchPaper(ResearchPaper researchPaper) {
         researchPaperRepository.save(researchPaper);
     }
 
+    public void approveDeclineWorkshop(WorkshopProposal workshopProposal){
+        workshopRepository.save(workshopProposal);
+    }
+
     public List<ResearchPaper> getAllResearchPapers() {
         return researchPaperRepository.findAll();
+    }
+
+    //Get all Workshops
+    public List<WorkshopProposal> getAllWorkshops(){
+        return workshopRepository.findAll();
     }
 
     public WorkshopProposal getWokshopProposal(String id) {

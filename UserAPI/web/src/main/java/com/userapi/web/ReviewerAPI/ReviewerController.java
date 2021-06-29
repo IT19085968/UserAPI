@@ -30,11 +30,6 @@ public class ReviewerController {
         return reviewerService.getAllResearchPapers();
     }
 
-    @GetMapping("/viewAllWorksShop")
-    public List<WorkshopProposal> getWorkshopProposals() {
-        return reviewerService.getAllWorkshopProposals();
-    }
-
     @GetMapping("/viewCertainWorkshop/{id}")
     public WorkshopProposal getWorkshopById(@PathVariable String id) {
         return reviewerService.getWokshopProposal(id);
@@ -55,8 +50,15 @@ public class ReviewerController {
         reviewerService.approveDeclineConferenceResearchPaper(researchPaper);
     }
 
+    // Approve Decline Workshop
     @PostMapping("/approveDeclineWorkshop")
-    public void approveDeclineWorkshop(@RequestBody WorkshopProposal proposal) {
-        reviewerService.approveDeclineWorkshopProposal(proposal);
+    public void approveDeclineWorkshop(@RequestBody WorkshopProposal workshopProposal) {
+        reviewerService.approveDeclineWorkshop(workshopProposal);
+    }
+
+    // Get all Workshops
+    @GetMapping("/viewWorkshops")
+    public List<WorkshopProposal> getWorkshops() {
+        return reviewerService.getAllWorkshops();
     }
 }
