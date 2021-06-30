@@ -9,12 +9,26 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Admin {
     @Id
     private String id;
-    private String Name;
-    private String Email;
+    private String name;
+    private String email;
     private String contactNumber;
-    private String Password;
+    private String password;
+
+    public Admin(String id, String name, String email, String contactNumber,String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.contactNumber = contactNumber;
+        this.password = password;
+    }
+
+    public Admin(String name, String email, String contactNumber,String password) {
+        this.name = name;
+        this.email = email;
+        this.contactNumber = contactNumber;
+        this.password = password;
+    }
 }
