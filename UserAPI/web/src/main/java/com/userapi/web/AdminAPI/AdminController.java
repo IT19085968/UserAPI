@@ -62,11 +62,13 @@ public class AdminController {
 
     @GetMapping(path = "/viewAllActivities")
     public List<Activity> viewAllActivities() {
+
         return adminService.viewAllActivities();
     }
 
     @GetMapping(path = "/getActivityDetails")
     public Activity getActivityDetails(@RequestParam String id) {
+
         return adminService.getActivityDetails(id);
     }
 }
