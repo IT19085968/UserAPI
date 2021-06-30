@@ -9,6 +9,7 @@ import Workshop from './Registration/Workshop_Registration';
 import Login from './Login/Login';
 import CallForPapers from './callForPapers/Call_For_Papers';
 import Home from './Home/home';
+import ContactUs from './ContactUs/ContactUs';
 
 function App() {
   return (
@@ -17,14 +18,15 @@ function App() {
        <Navbar/>
        <section>
          <Switch>
-           <Route path="/home" component={Home}/>
+           <Route path="/home" component={Home} exact/>
            <Route path="/reg-type" component={RegistrationType}/>
            <Route path="/participent" component={ParticipentRegistration}/>
            <Route path="/ws_presenter" component={Presenter}/>
            <Route path="/researcher" component={Researcher}/>
            <Route path="/workshop" component={Workshop}/>
            <Route path="/login" component={Login}/>
-           <Route path= "/callForPapers" component = {CallForPapers} exact/>
+           <Route path= "/callForPapers" component = {CallForPapers} />
+           <Route path="/contactus" component={ContactUs}/>
 
          </Switch>
        </section>

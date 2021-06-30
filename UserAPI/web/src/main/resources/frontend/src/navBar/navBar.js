@@ -31,6 +31,9 @@ class Navbar extends React.Component{
                     <a class="nav-link" href="/callForPapers"><i class="far fa-calendar-alt"></i>Call For Papers</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/contactus"><i class="far fa-chart-bar"></i>Contact Us</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
                 </li>
                 <li class="nav-item dropdown">
