@@ -3,21 +3,27 @@ package com.userapi.web.EditorAPI;
 import java.util.List;
 
 import com.userapi.web.models.Conference;
+import com.userapi.web.models.EditorChanges;
 import com.userapi.web.repositories.ConferenceRepository;
 
+import com.userapi.web.repositories.EditorChangesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EditorService {
-
-    private final EditorRepository editorRepository;
-    private final ConferenceRepository conferenceRepository;
-
     @Autowired
-    public EditorService(EditorRepository editorRepository, ConferenceRepository conferenceRepository) {
+    private final EditorRepository editorRepository;
+    @Autowired
+    private final ConferenceRepository conferenceRepository;
+    @Autowired
+    private final EditorChangesRepository editorChangesRepository;
+
+
+    public EditorService(EditorRepository editorRepository, ConferenceRepository conferenceRepository, EditorChangesRepository editorChangesRepository) {
         this.editorRepository = editorRepository;
         this.conferenceRepository = conferenceRepository;
+        this.editorChangesRepository = editorChangesRepository;
     }
 
     public List<Editor> getAllEditors() {
@@ -48,6 +54,9 @@ public class EditorService {
 
     public void updatetheConference(Conference conference) {
         Conference newConference = conferenceRepository.findById(conference.getId()).orElse(null);
+
+        EditorChanges editorChanges = new EditorChanges();
+
         newConference.setConferenceName(conference.getConferenceName());
         newConference.setDate(conference.getDate());
         newConference.setVenue(conference.getVenue());
@@ -56,7 +65,17 @@ public class EditorService {
         newConference.setNumberOfAttendees(conference.getNumberOfAttendees());
         newConference.setMaximumAttendees(conference.getMaximumAttendees());
         newConference.setApproved(conference.getApproved());
-        conferenceRepository.save(newConference);
+
+        editorChanges.setConferenceName(conference.getConferenceName());
+        editorChanges.setDate(conference.getDate());
+        editorChanges.setVenue(conference.getVenue());
+        editorChanges.setStartTime(conference.getStartTime());
+        editorChanges.setDuration(conference.getDuration());
+        editorChanges.setNumberOfAttendees(conference.getNumberOfAttendees());
+        editorChanges.setMaximumAttendees(conference.getMaximumAttendees());
+        editorChanges.setApproveOrDeclineEdit(null);
+
+        editorChangesRepository.save(editorChanges);
     }
 
     public List<Conference> getAlltheConferences() {

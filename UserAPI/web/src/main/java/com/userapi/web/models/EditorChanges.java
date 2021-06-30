@@ -18,6 +18,8 @@ public class EditorChanges {
     private String Venue;
     private String StartTime;
     private String Duration;
+    private int numberOfAttendees;
+    private int maximumAttendees;
     private Boolean approveOrDeclineEdit;
 
     public EditorChanges(int id, Boolean approveOrDeclineEdit) {

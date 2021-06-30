@@ -2,6 +2,7 @@ package com.userapi.web.EditorAPI;
 
 import java.util.List;
 
+import com.userapi.web.AdminAPI.ActivityService;
 import com.userapi.web.models.Conference;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class EditorController {
 
     private final EditorService editorService;
-
+    private final ActivityService activityService;
     @Autowired
-    public EditorController(EditorService editorService) {
+    public EditorController(EditorService editorService, ActivityService activityService) {
         this.editorService = editorService;
+        this.activityService = activityService;
     }
 
     @GetMapping("/")
@@ -53,6 +55,7 @@ public class EditorController {
 
     @PostMapping("/addConference")
     public void registerNewWorkshopPresenter(@RequestBody Conference conference) {
+        activityService.addActivity("Add Conference",conference.toString());
         editorService.addNewConference(conference);
     }
 
