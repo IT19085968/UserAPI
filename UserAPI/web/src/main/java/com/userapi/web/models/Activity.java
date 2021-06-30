@@ -16,5 +16,6 @@ public class Activity {
     private String id;
     private String type;
     private Date date;
+    private String description;
     private String userId;
 }

@@ -1,7 +1,9 @@
 package com.userapi.web.AdminAPI;
 
+import com.userapi.web.models.Activity;
 import com.userapi.web.models.Conference;
 import com.userapi.web.models.EditorChanges;
+import com.userapi.web.repositories.ActivityRepository;
 import com.userapi.web.repositories.ConferenceRepository;
 import com.userapi.web.repositories.EditorChangesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +25,26 @@ public class AdminService {
     private final MongoTemplate mongoTemplate;
     @Autowired
     private final ConferenceRepository conferenceRepository;
+    @Autowired
+    private final ActivityRepository activityRepository;
 
-    public AdminService(AdminRepository adminRepository, EditorChangesRepository editorChangesRepository, MongoTemplate mongoTemplate, ConferenceRepository conferenceRepository) {
+    public AdminService(AdminRepository adminRepository, EditorChangesRepository editorChangesRepository, MongoTemplate mongoTemplate, ConferenceRepository conferenceRepository, ActivityRepository activityRepository) {
         this.adminRepository = adminRepository;
         this.editorChangesRepository = editorChangesRepository;
         this.mongoTemplate = mongoTemplate;
         this.conferenceRepository = conferenceRepository;
+        this.activityRepository = activityRepository;
+    }
+
+    public List<Activity> viewAllActivities(){
+        return activityRepository.findAll();
+
+    }
+    public Activity getActivityDetails(String id){
+        Query query =new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        List<Activity> activityone = mongoTemplate.find(query,Activity.class);
+        return activityone.get(0);
     }
 
     public void addAdmin(Admin admin){

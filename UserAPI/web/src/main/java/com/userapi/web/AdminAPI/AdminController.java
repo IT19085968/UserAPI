@@ -16,12 +16,22 @@ import java.util.List;
 @CrossOrigin
 public class AdminController {
     @Autowired
-    AdminService adminService;
+    private final AdminService adminService;
     @Autowired
-    EditorService editorService;
+    private final EditorService editorService;
 
     @Autowired
-    ReviewerService reviewerService;
+    private final ReviewerService reviewerService;
+
+    @Autowired
+    private final ActivityService activityService;
+
+    public AdminController(AdminService adminService, EditorService editorService, ReviewerService reviewerService, ActivityService activityService) {
+        this.adminService = adminService;
+        this.editorService = editorService;
+        this.reviewerService = reviewerService;
+        this.activityService = activityService;
+    }
 
     @PostMapping("/addEditor")
     public void addEditor(@RequestBody Editor editor) {
@@ -46,18 +56,17 @@ public class AdminController {
 
     @PostMapping("/ApproveDeclineEdit")
     public void approveOrDeclineEdit(@RequestBody EditorChanges editorChanges) {
-
+        activityService.addActivity("Approve/Decline edit",editorChanges.toString());
+        adminService.approveOrDeclineEdit(editorChanges);
     }
 
     @GetMapping(path = "/viewAllActivities")
     public List<Activity> viewAllActivities() {
-
-        return null;
+        return adminService.viewAllActivities();
     }
 
     @GetMapping(path = "/getActivityDetails")
     public Activity getActivityDetails(@RequestParam String id) {
-
-        return null;
+        return adminService.getActivityDetails(id);
     }
 }
