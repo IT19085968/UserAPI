@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 public class WorkshopPresenter {
     @Id
     private String id;
-    private String Name;
+    private String name;
     private String email;
-    private String ContactNumber;
+    private String contactNumber;
     private String password;
     private String workshopProposalId;
 
