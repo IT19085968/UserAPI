@@ -41,7 +41,9 @@ class Presenter extends React.Component{
 
     render(){
         return(
+         
             <div className="container">
+               <br></br><br></br>
                 <h3>Registration</h3>
                 <form onSubmit={this.onSubmit}>
   <div className="mb-3">
