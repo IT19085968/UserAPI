@@ -15,9 +15,9 @@ public class WorkshopPresenter {
     @Id
     private String id;
     private String Name;
-    private String Email;
+    private String email;
     private String ContactNumber;
-    private String Password;
+    private String password;
     private String workshopProposalId;
 
 }

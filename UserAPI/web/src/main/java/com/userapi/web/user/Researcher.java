@@ -15,9 +15,9 @@ public class Researcher {
     @Id
     private String id;
     private String Name;
-    private String Email;
+    private String email;
     private int ContactNumber;
-    private String Password;
+    private String password;
     private String PaymentMethod;
     private int Amount;
     private String researchPaperId;
