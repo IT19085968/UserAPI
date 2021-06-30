@@ -20,8 +20,10 @@ class Workshop extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="container">
+                <br></br><br></br>
                 <h3>Registration</h3>
+                <br></br><br></br>
                 <form onSubmit={this.onSubmit}>
                 <div class="mb-3"  >
     <label for="passt" class="form-label">Upload Document</label><br></br>

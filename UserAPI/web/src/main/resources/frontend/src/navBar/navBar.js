@@ -10,7 +10,7 @@ class Navbar extends React.Component{
         return (
              <div>
 
-{/* <nav class="navbar navbar-expand-custom navbar-mainbg">
+<nav class="navbar navbar-expand-custom navbar-mainbg">
         <a class="navbar-brand navbar-logo" href="#">RNUN</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars text-white"></i>
@@ -19,27 +19,36 @@ class Navbar extends React.Component{
             <ul class="navbar-nav ml-auto">
                 <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
                 <li class="nav-item">
-                    <a class="nav-link" href="/home"><i class="fas fa-tachometer-alt"></i>Home</a>
+                    <a class="nav-link" href="/home"><i class="fas fa-home"></i>Home</a>
                 </li>
-                <li class="nav-item active">
-                    <a className="nav-link" href="/reg-type"><i class="far fa-address-book"></i>Registration</a>
+                {/* <li class="nav-item active">
+                    <a className="nav-link" href="/reg-type"><i class="far fa-user-plus"></i>Registration</a>
+                </li> */}
+                <li class="nav-item">
+                    <a className="nav-link" href="/reg-type"><i class="fas fa-user-plus"></i>Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a className="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+                    <a class="nav-link" href="/callForPapers"><i class="far fa-calendar-alt"></i>Call For Papers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+                    <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
-                </li>
+                <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+                
             </ul>
         </div>
-    </nav> */}
-                 <nav className="navbar navbar-expand-lg navbar navbar-light  " >
+    </nav>
+                 {/* <nav className="navbar navbar-expand-lg navbar navbar-light  " >
                 <div className="container-fluid">
                   <a className="navbar-brand" href="#">RNUN</a>
                   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,11 +62,11 @@ class Navbar extends React.Component{
                       <a className="nav-link" href="/login">Login</a>
                       <a className="nav-link" href="/callForPapers">Call For Papers</a>
                       <a className="nav-link" href="#"></a>
-                      {/* {/* <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>} */}
+                      
                     </div>
                   </div>
                 </div>
-</nav>
+</nav> */}
              </div>
         );
     }
