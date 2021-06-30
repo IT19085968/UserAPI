@@ -76,6 +76,7 @@ class RegistrationType extends React.Component{
         </td>
       </tr>
 
+
       <tr>
     <th scope="row">Workshop Only</th>
     <td>7,000.00</td>
@@ -87,6 +88,20 @@ class RegistrationType extends React.Component{
         <label class="btn btn-outline-primary" for="btnradio2">Register</label>
         </a> */}
         <a href="/workshop" class="btn btn-info" role="button">Register</a>
+  </td>
+      </tr>
+
+      <tr>
+    <th scope="row">Research Activities Only</th>
+    <td>7,000.00</td>
+        <td>All Research Activities</td>
+        <td>
+          {/* <a className="nav-link" href="/workshop">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"
+        onChange={e => this.props.history.push('newRoute') || (window.location.href = "/workshop") }/>
+        <label class="btn btn-outline-primary" for="btnradio2">Register</label>
+        </a> */}
+        <a href="/ractivities" class="btn btn-info" role="button">Register</a>
   </td>
       </tr>
 

@@ -12,6 +12,7 @@ import Home from './Home/home';
 import LoginFormAttendee from './Login/loginFormAttendee';
 import LoginFormResearcher from './Login/loginFormReseacher';
 import LoginFormWorkshopConductor from './Login/loginFormWorkshopConductor';
+import ResearchActivity from './Registration/ResearchActivity';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
            <Route path="/loginFormAttendee" component={LoginFormAttendee}/>
            <Route path="/loginFormResearcher" component={LoginFormResearcher}/>
            <Route path="/loginFormWorkshopConductor" component={LoginFormWorkshopConductor}/>
+           <Route path="/ractivities" component={ResearchActivity}/>
 
          </Switch>
        </section>
