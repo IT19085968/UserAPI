@@ -29,7 +29,7 @@ class Researcher extends React.Component{
             researchPaperId : this.state.filename
         }
 
-        axios.post('http://localhost:8080/userapi/workshoppresenter' , researcher)// Not implemented yet
+        axios.post('http://localhost:8080/userapi/researcher' , researcher)// Not implemented yet
         .then(response => {
             alert('Data successfully inserted')
           })

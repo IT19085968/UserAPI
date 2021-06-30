@@ -4,18 +4,30 @@ import axios from 'axios';
 class Workshop extends React.Component{
     constructor(props){
         super(props);
-        
+        this.onChange=this.onChange.bind(this);
         this.onSubmit=this.onSubmit.bind(this);
         this.state={
             filename:''//awl
         }
     }
 
+    onChange(e){
+        this.setState({[e.target.name]: e.target.value })
+    }
+
     onSubmit(e){
         e.preventDefault();
-        let WorkshopProposal={
+        let workshopProposal={
             workshopProposalId: this.state.filename
         }
+        axios.post('http://localhost:8080/userapi/createConferenceRequest' , workshopProposal)
+        .then(response => {
+            alert('Data successfully inserted')
+          })
+          .catch(error => {
+            console.log(error.message);
+            alert(error.message)
+          })
     }
 
     render(){

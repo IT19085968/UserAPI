@@ -21,7 +21,7 @@ class Presenter extends React.Component{
 
     onSubmit(e){
         e.preventDefault();
-        let WorkshopPresenter={
+        let workshopPresenter={
             Name : this.state.wname,
             Email : this.state.wemail,
             ContactNumber : this.state.wnumber,
@@ -29,7 +29,7 @@ class Presenter extends React.Component{
             workshopProposalId : this.state.filename
         }
 
-        axios.post('http://localhost:8080/userapi/workshoppresenter' , WorkshopPresenter)
+        axios.post('http://localhost:8080/userapi/workshoppresenter' , workshopPresenter)
         .then(response => {
             alert('Data successfully inserted')
           })
