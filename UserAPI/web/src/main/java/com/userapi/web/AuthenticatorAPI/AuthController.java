@@ -1,7 +1,7 @@
 package com.userapi.web.AuthenticatorAPI;
 
-import java.util.List;
-
+import com.userapi.web.AdminAPI.Admin;
+import com.userapi.web.AdminAPI.AdminRepository;
 import com.userapi.web.EditorAPI.Editor;
 import com.userapi.web.EditorAPI.EditorRepository;
 import com.userapi.web.ReviewerAPI.Reviewer;
@@ -10,12 +10,10 @@ import com.userapi.web.user.Attendee;
 import com.userapi.web.user.AttendeeRepository;
 import com.userapi.web.user.Researcher;
 import com.userapi.web.user.ResearcherRepository;
-import com.userapi.web.user.UserRepository;
 import com.userapi.web.user.WorkshopPresenter;
 import com.userapi.web.user.WorkshopPresenterRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,27 +25,27 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class AuthController {
 
-    private final UserRepository userRepository;
     private final WorkshopPresenterRepository workshopPresenterRepository;
     private final ResearcherRepository researcherRepository;
     private final AttendeeRepository attendeeRepository;
     private final EditorRepository editorRepository;
     private final ReviewerRepository reviewerRepository;
+    private final AdminRepository adminRepository;
 
     @Autowired
-    public AuthController(UserRepository userRepository, WorkshopPresenterRepository workshopPresenterRepository,
+    public AuthController(WorkshopPresenterRepository workshopPresenterRepository,
             ResearcherRepository researcherRepository, AttendeeRepository attendeeRepository,
-            EditorRepository editorRepository, ReviewerRepository reviewerRepository) {
-        this.userRepository = userRepository;
+            EditorRepository editorRepository, ReviewerRepository reviewerRepository, AdminRepository adminRepository) {
         this.workshopPresenterRepository = workshopPresenterRepository;
         this.researcherRepository = researcherRepository;
         this.attendeeRepository = attendeeRepository;
         this.editorRepository = editorRepository;
         this.reviewerRepository = reviewerRepository;
+        this.adminRepository = adminRepository;
     }
 
     @PostMapping("/login")
-    public String loginWorkshopPresenter(@RequestBody AuthenticationRequest authenticationRequest) {
+    public String loginUser(@RequestBody AuthenticationRequest authenticationRequest) {
 
         String userID = null;
 
@@ -101,7 +99,22 @@ public class AuthController {
 
         }
 
+        else if (authenticationRequest.getUserType().equals("admin")) {
+            // userID =
+            // workshopPresenterRepository.getWorkshopPresenterID(authenticationRequest.getEmail(),
+            // authenticationRequest.getPassword());
+            Admin admin = adminRepository.findAdmin(authenticationRequest.getEmail(),
+                    authenticationRequest.getPassword());
+            userID = admin.getId();
+
+        }
+
         return userID;
+    }
+
+    @PostMapping("/signup")
+    public void signUpUser(@RequestBody SignUpRequest signUpRequest) {
+
     }
 
 }
