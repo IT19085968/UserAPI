@@ -13,7 +13,13 @@ class RegistrationType extends React.Component{
     render(){
         return(
             <div>
+                <br></br>
+<h2>Registration</h2>
+<br></br>
 
+<h3>Registration Fees</h3>
+
+<hr></hr>
 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
 <div class="table-responsive">
