@@ -65,12 +65,18 @@ class Researcher extends React.Component{
     <input type="text" class="form-control" id="pass" name="rpassword" value={this.state.rpassword} onChange={this.onChange} />
   </div>
 
-  
+  <div class="mb-3"  >
+    <label for="passt" class="form-label">Upload Document</label><br></br>
+    <input type="file" id="myFile" class="form-control" name="filename" value={this.state.filename} onChange={this.onChange} />
+  </div>
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
             </div>
-        )
+       
+
+
+)
     }
 }
 
