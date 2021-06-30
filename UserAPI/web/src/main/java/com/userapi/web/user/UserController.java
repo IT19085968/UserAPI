@@ -51,6 +51,11 @@ public class UserController {
         return userService.getAllAttendees();
     }
 
+    @GetMapping("/researcher")
+    public List<Researcher> getResearchers() {
+        return userService.getAllResearchers();
+    }
+
     @GetMapping("/workshoppresenter/{id}")
     public List<WorkshopPresenter> getWorkshopPresenterByProposal(@PathVariable String id) {
         return userService.getOneWorkshopPresenter(id);

@@ -74,4 +74,8 @@ public class UserService {
         return attendeeRepository.findAll();
     }
 
+    public List<Researcher> getAllResearchers() {
+        return researcherRepository.findAll();
+    }
+
 }
