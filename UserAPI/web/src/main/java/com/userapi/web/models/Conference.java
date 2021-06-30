@@ -14,11 +14,14 @@ import lombok.NoArgsConstructor;
 public class Conference {
     @Id
     private String id;
-    private String ConferenceName;
-    private String Date;
-    private String Venue;
-    private String StartTime;
-    private String Duration;
+
+    //Unique Attribute
+    private String conferenceName;
+
+    private String date;
+    private String venue;
+    private String startTime;
+    private String duration;
     private int numberOfAttendees;
     private int maximumAttendees;
     private boolean approved;
