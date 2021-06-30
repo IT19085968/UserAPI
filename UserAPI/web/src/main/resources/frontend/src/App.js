@@ -9,6 +9,9 @@ import Workshop from './Registration/Workshop_Registration';
 import Login from './Login/Login';
 import CallForPapers from './callForPapers/Call_For_Papers';
 import Home from './Home/home';
+import LoginFormAttendee from './Login/loginFormAttendee';
+import LoginFormResearcher from './Login/loginFormReseacher';
+import LoginFormWorkshopConductor from './Login/loginFormWorkshopConductor';
 
 function App() {
   return (
@@ -25,6 +28,10 @@ function App() {
            <Route path="/workshop" component={Workshop}/>
            <Route path="/login" component={Login}/>
            <Route path= "/callForPapers" component = {CallForPapers} exact/>
+
+           <Route path="/loginFormAttendee" component={LoginFormAttendee}/>
+           <Route path="/loginFormResearcher" component={LoginFormResearcher}/>
+           <Route path="/loginFormWorkshopConductor" component={LoginFormWorkshopConductor}/>
 
          </Switch>
        </section>
